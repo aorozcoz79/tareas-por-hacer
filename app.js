@@ -11,8 +11,7 @@ switch (key) {
         break;
 
     case 'listar':
-        let lista = porHacer.getListado()
-            // console.log(lista);
+        let lista = porHacer.getListado(args.completado)
         lista.forEach(tarea => {
             console.log('====================='.yellow);
             console.log(colors.green(tarea.descripcion));

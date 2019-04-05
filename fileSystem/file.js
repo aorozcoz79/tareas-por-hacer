@@ -34,9 +34,20 @@ const crear = (descripcion) => {
 
     return porHacer
 }
-const getListado = () => {
+const getListado = (completado) => {
     cargarBD()
-    return listadoTareas
+    let lista = []
+    if (completado === undefined) {
+        lista = listadoTareas
+    } else {
+        estado = (completado == 'true')
+        listadoTareas.forEach(x => {
+            if (x.completado == estado) {
+                lista.push(x)
+            }
+        });
+    }
+    return lista
 
 }
 const cerrar = (descripcion, completado = true) => {
